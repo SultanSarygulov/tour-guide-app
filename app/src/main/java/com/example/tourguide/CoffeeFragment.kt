@@ -21,11 +21,16 @@ class CoffeeFragment : Fragment() {
         binding = FragmentCoffeeBinding.inflate(inflater, container, false)
 
         binding.recyclerViewCoffee.layoutManager = LinearLayoutManager(this@CoffeeFragment.context)
-        binding.recyclerViewCoffee.adapter = LocationRecyclerAdapter(getLocationNames())
+        binding.recyclerViewCoffee.adapter = LocationRecyclerAdapter(coffeeLocations)
         return binding.root
     }
 
-    private fun getLocationNames(): List<String>{
-        return this.resources.getStringArray(R.array.location_names).toList()
-    }
+    private val coffeeLocations: List<List<String>> = listOf(
+        listOf("The Kata", "Токомбаева, 23/9", "Открыто до 22:00"),
+        listOf("CocoGin", "Манаса, 9", "Открыто до 02:00"),
+        listOf("Traveler's Coffee", "Токтогула, 107", "Открыто до 00:00"),
+        listOf("Kiwi", "Кок-Жар, 7/1", "Открыто до 00:00"),
+        listOf("Monkey Coffee", "Токтогула, 165", "Открыто до 23:00"),
+        listOf("Aldo Coffee", "Горького, 19", "Открыто до 04:00"),
+    )
 }

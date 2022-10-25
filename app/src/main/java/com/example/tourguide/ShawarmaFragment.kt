@@ -20,12 +20,17 @@ class ShawarmaFragment : Fragment() {
         binding = FragmentShawarmaBinding.inflate(inflater, container, false)
 
         binding.recyclerViewShawarma.layoutManager = LinearLayoutManager(this@ShawarmaFragment.context)
-        binding.recyclerViewShawarma.adapter = LocationRecyclerAdapter(getLocationNames())
+        binding.recyclerViewShawarma.adapter = LocationRecyclerAdapter(shawarmaLocations)
         return binding.root
     }
 
-    private fun getLocationNames(): List<String>{
-        return this.resources.getStringArray(R.array.location_names).toList()
-    }
+    private val shawarmaLocations: List<List<String>> = listOf(
+        listOf("Oasis", "Московская, 78/1", "Открыто до 22:00"),
+        listOf("Эки Дос", "Абдрахманова, 176/5", "Круглосуточно"),
+        listOf("Burger na dorojke","Тунгуч, 36/4", "Круглосуточно"),
+        listOf("Muslim Food", "Проспект Ленина, 48", "Открыто до 04:00"),
+        listOf("Al-Israa", "Кольбаева, 68", "Открыто до 00:00"),
+        listOf("Бир 1/2 Эки", "Проспект Чуй, 110", "Круглосуточно"),
+    )
 }
 
