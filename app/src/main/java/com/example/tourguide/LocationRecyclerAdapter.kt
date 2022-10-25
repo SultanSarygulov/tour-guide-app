@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.tourguide.databinding.RecyclerviewItemBinding
 
 class LocationRecyclerAdapter (private val names: List<String>):
     RecyclerView.Adapter<LocationRecyclerAdapter.MyViewHolder>(){
