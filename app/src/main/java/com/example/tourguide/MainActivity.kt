@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
     private val categories = arrayListOf(
         "Шаурмячные",
         "Кофейни",
+        "Кинотеатры",
         "Пиццерии")
 
     override fun onCreate(savedInstanceState: Bundle?) {

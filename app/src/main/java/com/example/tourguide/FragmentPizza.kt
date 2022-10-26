@@ -7,11 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tourguide.databinding.FragmentPizzaBinding
-import com.example.tourguide.databinding.FragmentShawarmaBinding
 
-class PizzaFragment : Fragment() {
+class FragmentPizza : Fragment() {
 
-    private val photo = "https://qph.cf2.quoracdn.net/main-qimg-965b11ec95106e64d37f5c380802c305-lq"
+    private val photo = "https://pbs.twimg.com/ext_tw_video_thumb/1533643804389085185/pu/img/aZFC-czlC1ZLG-hr.jpg"
 
     private lateinit var binding: FragmentPizzaBinding
 
@@ -22,7 +21,7 @@ class PizzaFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentPizzaBinding.inflate(inflater, container, false)
 
-        binding.recyclerViewPizza.layoutManager = LinearLayoutManager(this@PizzaFragment.context)
+        binding.recyclerViewPizza.layoutManager = LinearLayoutManager(this@FragmentPizza.context)
         binding.recyclerViewPizza.adapter = LocationRecyclerAdapter(pizzaLocations, "Пиццерия", photo)
         return binding.root
     }

@@ -6,13 +6,14 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 
 class ViewPagerAdapter(fragment: FragmentActivity): FragmentStateAdapter(fragment) {
 
-    override fun getItemCount(): Int = 3
+    override fun getItemCount(): Int = 4
 
     override fun createFragment(position: Int): Fragment {
         return when(position){
-            0 -> ShawarmaFragment()
-            1 -> PizzaFragment()
-            else -> CoffeeFragment()
+            0 -> FragmentShawarma()
+            1 -> FragmentPizza()
+            2 -> FragmentCinema()
+            else -> FragmentCoffee()
         }
     }
 }

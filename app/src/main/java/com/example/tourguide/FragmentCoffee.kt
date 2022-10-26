@@ -7,13 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tourguide.databinding.FragmentCoffeeBinding
-import com.example.tourguide.databinding.FragmentShawarmaBinding
 
-class CoffeeFragment : Fragment() {
+class FragmentCoffee : Fragment() {
 
     private lateinit var binding: FragmentCoffeeBinding
 
-    private val photo = "https://qph.cf2.quoracdn.net/main-qimg-965b11ec95106e64d37f5c380802c305-lq"
+    private val photo = "https://pbs.twimg.com/ext_tw_video_thumb/1533643804389085185/pu/img/aZFC-czlC1ZLG-hr.jpg"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,7 +21,7 @@ class CoffeeFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentCoffeeBinding.inflate(inflater, container, false)
 
-        binding.recyclerViewCoffee.layoutManager = LinearLayoutManager(this@CoffeeFragment.context)
+        binding.recyclerViewCoffee.layoutManager = LinearLayoutManager(this@FragmentCoffee.context)
         binding.recyclerViewCoffee.adapter = LocationRecyclerAdapter(coffeeLocations, "Кофейня", photo)
         return binding.root
     }
