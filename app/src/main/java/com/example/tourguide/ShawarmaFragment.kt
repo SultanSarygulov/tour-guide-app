@@ -10,6 +10,8 @@ import com.example.tourguide.databinding.FragmentShawarmaBinding
 
 class ShawarmaFragment : Fragment() {
 
+    private val photo = "https://qph.cf2.quoracdn.net/main-qimg-965b11ec95106e64d37f5c380802c305-lq"
+
     private lateinit var binding: FragmentShawarmaBinding
 
     override fun onCreateView(
@@ -20,7 +22,7 @@ class ShawarmaFragment : Fragment() {
         binding = FragmentShawarmaBinding.inflate(inflater, container, false)
 
         binding.recyclerViewShawarma.layoutManager = LinearLayoutManager(this@ShawarmaFragment.context)
-        binding.recyclerViewShawarma.adapter = LocationRecyclerAdapter(shawarmaLocations)
+        binding.recyclerViewShawarma.adapter = LocationRecyclerAdapter(shawarmaLocations, "Шаурмячная", photo)
         return binding.root
     }
 

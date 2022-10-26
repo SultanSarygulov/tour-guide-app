@@ -11,6 +11,8 @@ import com.example.tourguide.databinding.FragmentShawarmaBinding
 
 class PizzaFragment : Fragment() {
 
+    private val photo = "https://qph.cf2.quoracdn.net/main-qimg-965b11ec95106e64d37f5c380802c305-lq"
+
     private lateinit var binding: FragmentPizzaBinding
 
     override fun onCreateView(
@@ -21,7 +23,7 @@ class PizzaFragment : Fragment() {
         binding = FragmentPizzaBinding.inflate(inflater, container, false)
 
         binding.recyclerViewPizza.layoutManager = LinearLayoutManager(this@PizzaFragment.context)
-        binding.recyclerViewPizza.adapter = LocationRecyclerAdapter(pizzaLocations)
+        binding.recyclerViewPizza.adapter = LocationRecyclerAdapter(pizzaLocations, "Пиццерия", photo)
         return binding.root
     }
 

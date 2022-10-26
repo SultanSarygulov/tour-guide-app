@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:layout_margin="8dp"
-    android:visibility="invisible"
+    android:visibility="visible"
     tools:visibility="visible">
 
     <ImageView
@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/my_blue"
-            android:textSize="35dp"
+            android:textSize="35sp"
             tools:text="Oasis"/>
 
         <TextView
@@ -40,7 +40,6 @@
             android:layout_height="wrap_content"
             android:textColor="@color/my_gray"
             tools:text="Шаурмячная"/>
-
 
     </LinearLayout>
 
@@ -120,8 +119,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/phone_icon"
-            android:layout_toRightOf="@id/phone_icon"
             android:layout_marginLeft="6dp"
+            android:layout_toRightOf="@id/phone_icon"
             android:textColor="@color/my_blue"
             tools:text="+996 505 505 505" />
 

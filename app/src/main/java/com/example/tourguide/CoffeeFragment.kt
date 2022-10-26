@@ -13,6 +13,8 @@ class CoffeeFragment : Fragment() {
 
     private lateinit var binding: FragmentCoffeeBinding
 
+    private val photo = "https://qph.cf2.quoracdn.net/main-qimg-965b11ec95106e64d37f5c380802c305-lq"
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -21,7 +23,7 @@ class CoffeeFragment : Fragment() {
         binding = FragmentCoffeeBinding.inflate(inflater, container, false)
 
         binding.recyclerViewCoffee.layoutManager = LinearLayoutManager(this@CoffeeFragment.context)
-        binding.recyclerViewCoffee.adapter = LocationRecyclerAdapter(coffeeLocations)
+        binding.recyclerViewCoffee.adapter = LocationRecyclerAdapter(coffeeLocations, "Кофейня", photo)
         return binding.root
     }
 
