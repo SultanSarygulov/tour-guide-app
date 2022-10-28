@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TourGuide</string>
+    <string name="app_name">Bishkek Guide</string>
     <string-array name="location_names">
         <item>Oasis</item>
         <item>ЭкиДос</item>

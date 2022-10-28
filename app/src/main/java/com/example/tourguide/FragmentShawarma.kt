@@ -10,7 +10,7 @@ import com.example.tourguide.databinding.FragmentShawarmaBinding
 
 class FragmentShawarma : Fragment() {
 
-    private val photo = "https://pbs.twimg.com/ext_tw_video_thumb/1533643804389085185/pu/img/aZFC-czlC1ZLG-hr.jpg"
+    private val photo = "https://avatars.mds.yandex.net/get-altay/1705560/2a0000016c8cceb4fd49483a33fbbdde78d4/XXL"
 
     private lateinit var binding: FragmentShawarmaBinding
 
@@ -29,11 +29,11 @@ class FragmentShawarma : Fragment() {
     }
 
     private val shawarmaLocations: List<List<String>> = listOf(
-        listOf("Oasis", "Московская, 78/1", "Открыто до 22:00"),
-        listOf("Эки Дос", "Абдрахманова, 176/5", "Круглосуточно"),
-        listOf("Burger na dorojke", "Тунгуч, 36/4", "Круглосуточно"),
-        listOf("Muslim Food", "Проспект Ленина, 48", "Открыто до 04:00"),
-        listOf("Al-Israa", "Кольбаева, 68", "Открыто до 00:00"),
-        listOf("Бир 1/2 Эки", "Проспект Чуй, 110", "Круглосуточно"),
+        listOf("Oasis", "Московская, 78/1", "Открыто до 22:00", "Киоск фастфудной продукции", "250", "+996 774‒44‒55‒99"),
+        listOf("Эки Дос", "Абдрахманова, 176/5", "Круглосуточно", "Кафе быстрого питания", "130", "+996 509‒82‒28‒22"),
+        listOf("Burger na dorojke", "Тунгуч, 36/4", "Круглосуточно", "Киоск фастфудной продукции", "150", "+996 555‒16‒16‒51"),
+        listOf("Muslim Food", "Проспект Ленина, 48", "Открыто до 04:00", "Киоск фастфуда", "150", "Отсутствует"),
+        listOf("Al-Israa", "Кольбаева, 68", "Открыто до 00:00", "Киоск фастфудной продукции", "700", "+996 703‒33‒37‒13"),
+        listOf("Бир 1/2 Эки", "Проспект Чуй, 110", "Круглосуточно", "Кафе быстрого питания", "160", "+996 502‒16‒51‒25"),
     )
 }

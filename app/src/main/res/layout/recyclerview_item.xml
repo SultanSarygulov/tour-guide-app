@@ -6,7 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:layout_margin="8dp">
+    android:layout_margin="8dp"
+    android:fontFamily="@font/open_sans"
+    >
 
     <ImageView
         android:id="@+id/location_photo"
@@ -27,6 +29,7 @@
             android:id="@+id/location_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans_semibold"
             android:textColor="@color/my_blue"
             android:textSize="24sp"
             tools:text="Oasis" />
@@ -36,13 +39,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/my_gray"
-            tools:text="Шаурмячная" />
+            android:fontFamily="@font/open_sans"
+            tools:text="Шаурмячная"/>
 
         <TextView
             android:id="@+id/location_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/my_dark_gray"
+            android:fontFamily="@font/open_sans"
             tools:text="Карпинка" />
 
         <TextView
@@ -50,7 +55,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/my_dark_gray"
+            android:fontFamily="@font/open_sans"
             tools:text="Открыто до 23:59" />
+
     </LinearLayout>
 
     <RelativeLayout
@@ -77,6 +84,7 @@
             android:layout_marginLeft="6dp"
             android:layout_toRightOf="@+id/info_icon"
             android:textColor="@color/my_gray"
+            android:fontFamily="@font/open_sans"
             tools:text="Ресторан Европейской кухни" />
 
         <TextView
@@ -86,6 +94,7 @@
             android:layout_below="@+id/location_type_spec"
             android:layout_alignLeft="@+id/location_type_spec"
             android:textColor="@color/my_gray"
+            android:fontFamily="@font/open_sans"
             tools:text="Средний чек 800 с" />
 
         <TextView
@@ -95,6 +104,7 @@
             android:layout_below="@+id/location_check"
             android:layout_alignLeft="@+id/location_type_spec"
             android:textColor="@color/my_gray"
+            android:fontFamily="@font/open_sans"
             tools:text="Открыто до 23:59" />
 
         <ImageView
@@ -114,6 +124,7 @@
             android:layout_marginLeft="6dp"
             android:layout_toRightOf="@id/address_icon"
             android:textColor="@color/my_blue"
+            android:fontFamily="@font/open_sans"
             tools:text="Проспект Чуй 136" />
 
         <ImageView
@@ -134,6 +145,7 @@
             android:layout_marginLeft="6dp"
             android:layout_toRightOf="@id/phone_icon"
             android:textColor="@color/my_blue"
+            android:fontFamily="@font/open_sans"
             tools:text="+996 505 505 505" />
 
 

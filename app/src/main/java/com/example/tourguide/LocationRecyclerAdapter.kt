@@ -1,11 +1,14 @@
 package com.example.tourguide
 
+import android.content.Intent
+import android.net.Uri
 import android.util.Log
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.content.ContextCompat.startActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -56,6 +59,10 @@ class LocationRecyclerAdapter (private val description: List<List<String>>, priv
         val addressPos = 1
         val closetimePos = 2
 
+        val infoPos = 3
+        val checkPos = 4
+        val phonePos = 5
+
         with(holder){
             Glide.with(locationPhoto)
                 .load(photo)
@@ -64,6 +71,18 @@ class LocationRecyclerAdapter (private val description: List<List<String>>, priv
             locationType.text = type
             locationAddress.text = description[position][addressPos]
             locationClosetime.text = description[position][closetimePos]
+
+            locationTypeSpec.text = description[position][infoPos]
+            locationCheck.text = "Средний чек ${description[position][checkPos]} с"
+            locationPhone.text = description[position][phonePos]
+            locationAddress2.text = description[position][addressPos]
+            locationClosetime2.text = description[position][closetimePos]
+
+            locationPhone.setOnClickListener {
+                val callIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + locationPhone.text))
+                locationPhone.context.startActivity(callIntent)
+            }
+
             button.setOnClickListener {
                 if (button.contentDescription == "down"){
                     button.setImageResource(R.drawable.arrow_up)
@@ -79,11 +98,7 @@ class LocationRecyclerAdapter (private val description: List<List<String>>, priv
                 }
             }
 
-            locationTypeSpec.text = "Турецкая шаурмячная"
-            locationCheck.text = "Средний чек 800 с"
-            locationPhone.text = "+996 505 505 505"
-            locationAddress2.text = description[position][addressPos]
-            locationClosetime2.text = description[position][closetimePos]
+
         }
     }
 
