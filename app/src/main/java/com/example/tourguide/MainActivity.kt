@@ -13,9 +13,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val categories = arrayListOf(
         "Шаурмячные",
-        "Кофейни",
+        "Пиццерии",
         "Кинотеатры",
-        "Пиццерии")
+        "Кофейни",)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

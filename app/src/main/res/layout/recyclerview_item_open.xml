@@ -77,7 +77,7 @@
             tools:text="Средний чек 800 с" />
 
         <TextView
-            android:id="@+id/location_closetime"
+            android:id="@+id/location_closetime2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/location_check"
@@ -89,13 +89,13 @@
             android:id="@+id/address_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/location_closetime"
+            android:layout_below="@id/location_closetime2"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="28dp"
             android:src="@drawable/ic_address" />
 
         <TextView
-            android:id="@+id/location_address"
+            android:id="@+id/location_address2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/address_icon"
