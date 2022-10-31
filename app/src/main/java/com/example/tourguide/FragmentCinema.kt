@@ -25,7 +25,7 @@ class FragmentCinema : Fragment() {
         binding.recyclerView.layoutManager =
             LinearLayoutManager(this.context)
         binding.recyclerView.adapter =
-            LocationRecyclerAdapter(cinemaLocations, "Кинотеатр", photo)
+            LocationRecyclerAdapter(cinemaLocations, "Кинотеатр")
         return binding.root
     }
 

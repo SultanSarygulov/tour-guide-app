@@ -22,7 +22,7 @@ class FragmentPizza : Fragment() {
         binding = FragmentPizzaBinding.inflate(inflater, container, false)
 
         binding.recyclerViewPizza.layoutManager = LinearLayoutManager(this@FragmentPizza.context)
-        binding.recyclerViewPizza.adapter = LocationRecyclerAdapter(pizzaLocations, "Пиццерия", photo)
+        binding.recyclerViewPizza.adapter = LocationRecyclerAdapter(pizzaLocations, "Пиццерия")
         return binding.root
     }
 

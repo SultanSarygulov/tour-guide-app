@@ -22,16 +22,16 @@ class FragmentCoffee : Fragment() {
         binding = FragmentCoffeeBinding.inflate(inflater, container, false)
 
         binding.recyclerViewCoffee.layoutManager = LinearLayoutManager(this@FragmentCoffee.context)
-        binding.recyclerViewCoffee.adapter = LocationRecyclerAdapter(coffeeLocations, "Кофейня", photo)
+        binding.recyclerViewCoffee.adapter = LocationRecyclerAdapter(coffeeLocations, "Кофейня")
         return binding.root
     }
 
     private val coffeeLocations: List<List<String>> = listOf(
-        listOf("The Kata", "Токомбаева, 23/9", "Открыто до 22:00"),
-        listOf("CocoGin", "Манаса, 9", "Открыто до 02:00"),
-        listOf("Traveler's Coffee", "Токтогула, 107", "Открыто до 00:00"),
-        listOf("Kiwi", "Кок-Жар, 7/1", "Открыто до 00:00"),
-        listOf("Monkey Coffee", "Токтогула, 165", "Открыто до 23:00"),
-        listOf("Aldo Coffee", "Горького, 19", "Открыто до 04:00"),
+        listOf("https://i0.photo.2gis.com/images/branch/0/30258560067483226_9529.jpg", "The Kata", "Токомбаева, 23/9", "Открыто до 22:00", "Ресторан", "1500", "+996 558‒39‒93‒48"),
+        listOf("https://i5.photo.2gis.com/images/branch/0/30258560067365260_025b.jpg", "CocoGin", "Манаса, 9", "Открыто до 02:00", "Бар", "400", "+996 558‒39‒93‒45"),
+        listOf("https://media-cdn.tripadvisor.com/media/photo-s/0d/67/a3/25/traveler-s-coffee.jpg", "Traveler's Coffee", "Токтогула, 107", "Открыто до 00:00",  "Кофейня", "500","+996 770‒03‒35‒92"),
+        listOf("https://i9.photo.2gis.com/images/branch/0/30258560069390818_36d3.jpg", "Kiwi", "Кок-Жар, 7/1", "Открыто до 00:00", "Кофейня", "500", "+996 558‒39‒97‒85"),
+        listOf("https://sxodim.com/uploads/posts/2022/10/06/optimized/16ca001fddabe6325fe242ef8bc1da82_220x132-q-85.jpg", "Monkey Coffee", "Токтогула, 165", "Открыто до 23:00", "Кофейня", "700", "+996 770‒00‒45‒91"),
+        listOf("https://prod-choiceqr-media.s3.eu-central-1.amazonaws.com/prod-eat-aldo-coffee/ZuENQPr-cDEoFQe-xzkuvku.jpeg", "Aldo Coffee", "Горького, 19", "Открыто до 04:00", "Кофейня", "450", "+996 772‒07‒00‒26"),
     )
 }

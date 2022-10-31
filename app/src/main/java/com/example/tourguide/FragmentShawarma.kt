@@ -1,6 +1,7 @@
 package com.example.tourguide
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -24,16 +25,17 @@ class FragmentShawarma : Fragment() {
         binding.recyclerViewShawarma.layoutManager =
             LinearLayoutManager(this@FragmentShawarma.context)
         binding.recyclerViewShawarma.adapter =
-            LocationRecyclerAdapter(shawarmaLocations, "Шаурмячная", photo)
+            LocationRecyclerAdapter(shawarmaLocations, "Шаурмячная")
         return binding.root
     }
 
+
     private val shawarmaLocations: List<List<String>> = listOf(
-        listOf("Oasis", "Московская, 78/1", "Открыто до 22:00", "Киоск фастфудной продукции", "250", "+996 774‒44‒55‒99"),
-        listOf("Эки Дос", "Абдрахманова, 176/5", "Круглосуточно", "Кафе быстрого питания", "130", "+996 509‒82‒28‒22"),
-        listOf("Burger na dorojke", "Тунгуч, 36/4", "Круглосуточно", "Киоск фастфудной продукции", "150", "+996 555‒16‒16‒51"),
-        listOf("Muslim Food", "Проспект Ленина, 48", "Открыто до 04:00", "Киоск фастфуда", "150", "Отсутствует"),
-        listOf("Al-Israa", "Кольбаева, 68", "Открыто до 00:00", "Киоск фастфудной продукции", "700", "+996 703‒33‒37‒13"),
-        listOf("Бир 1/2 Эки", "Проспект Чуй, 110", "Круглосуточно", "Кафе быстрого питания", "160", "+996 502‒16‒51‒25"),
+        listOf("https://i8.photo.2gis.com/images/branch/0/30258560067203567_6bd3_300x300.jpg","Oasis", "Московская, 78/1", "Открыто до 22:00", "Киоск фастфудной продукции", "250", "+996 774‒44‒55‒99"),
+        listOf("https://i5.photo.2gis.com/images/branch/0/30258560075361905_ecff.jpg", "Эки Дос", "Абдрахманова, 176/5", "Круглосуточно", "Кафе быстрого питания", "130", "+996 509‒82‒28‒22"),
+        listOf("https://i8.photo.2gis.com/images/branch/0/30258560053568273_10e4.jpg", "Burger na dorojke", "Тунгуч, 36/4", "Круглосуточно", "Киоск фастфудной продукции", "150", "+996 555‒16‒16‒51"),
+        listOf("https://i8.photo.2gis.com/images/branch/0/30258560068852043_d030.jpg", "Muslim Food", "Проспект Ленина, 48", "Открыто до 04:00", "Киоск фастфуда", "150", "Отсутствует"),
+        listOf("https://i2.photo.2gis.com/images/branch/0/30258560067843319_72d9.jpg", "Al-Israa", "Кольбаева, 68", "Открыто до 00:00", "Киоск фастфудной продукции", "700", "+996 703‒33‒37‒13"),
+        listOf("https://i1.photo.2gis.com/images/branch/0/30258560067202581_9b2d.jpg", "Бир 1/2 Эки", "Проспект Чуй, 110", "Круглосуточно", "Кафе быстрого питания", "160", "+996 502‒16‒51‒25"),
     )
 }

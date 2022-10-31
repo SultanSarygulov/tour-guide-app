@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.recyclerview_item.view.*
 
-class LocationRecyclerAdapter (private val description: List<List<String>>, private val type: String, private val photo: String):
+class LocationRecyclerAdapter (private val description: List<List<String>>, private val type: String):
     RecyclerView.Adapter<LocationRecyclerAdapter.MyViewHolder>(){
 
 
@@ -48,25 +48,25 @@ class LocationRecyclerAdapter (private val description: List<List<String>>, priv
             LayoutInflater.from(parent.context).
                     inflate(R.layout.recyclerview_item, parent, false)
 
-
-
         return MyViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: LocationRecyclerAdapter.MyViewHolder, position: Int) {
 
-        val namePos = 0
-        val addressPos = 1
-        val closetimePos = 2
+        val photoPos = 0
+        val namePos = 1
+        val addressPos = 2
+        val closetimePos = 3
 
-        val infoPos = 3
-        val checkPos = 4
-        val phonePos = 5
+        val infoPos = 4
+        val checkPos = 5
+        val phonePos = 6
 
         with(holder){
             Glide.with(locationPhoto)
-                .load(photo)
-                .into(holder.locationPhoto)
+                .load(description[position][photoPos])
+                .into(locationPhoto)
+
             locationName.text = description[position][namePos]
             locationType.text = type
             locationAddress.text = description[position][addressPos]
@@ -97,8 +97,6 @@ class LocationRecyclerAdapter (private val description: List<List<String>>, priv
                     button.contentDescription = "down"
                 }
             }
-
-
         }
     }
 
