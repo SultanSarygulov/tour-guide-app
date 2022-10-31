@@ -83,6 +83,11 @@ class LocationRecyclerAdapter (private val description: List<List<String>>, priv
                 locationPhone.context.startActivity(callIntent)
             }
 
+            locationAddress2.setOnClickListener {
+                val callIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://2gis.kg/bishkek/search/" + description[position][addressPos]))
+                locationAddress2.context.startActivity(callIntent)
+            }
+
             button.setOnClickListener {
                 if (button.contentDescription == "down"){
                     button.setImageResource(R.drawable.arrow_up)
