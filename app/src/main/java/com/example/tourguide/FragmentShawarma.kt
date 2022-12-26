@@ -1,5 +1,7 @@
 package com.example.tourguide
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -9,7 +11,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tourguide.databinding.FragmentShawarmaBinding
 
-class FragmentShawarma : Fragment() {
+class FragmentShawarma : Fragment(), Listener {
 
     private val photo = "https://avatars.mds.yandex.net/get-altay/1705560/2a0000016c8cceb4fd49483a33fbbdde78d4/XXL"
 
@@ -25,7 +27,7 @@ class FragmentShawarma : Fragment() {
         binding.recyclerViewShawarma.layoutManager =
             LinearLayoutManager(this@FragmentShawarma.context)
         binding.recyclerViewShawarma.adapter =
-            LocationRecyclerAdapter(shawarmaLocations, "Шаурмячная")
+            LocationRecyclerAdapter(shawarmaLocations, "Шаурмячная", this)
         return binding.root
     }
 
@@ -38,4 +40,14 @@ class FragmentShawarma : Fragment() {
         listOf("https://i2.photo.2gis.com/images/branch/0/30258560067843319_72d9.jpg", "Al-Israa", "Кольбаева, 68", "Открыто до 00:00", "Киоск фастфудной продукции", "700", "+996 703‒33‒37‒13"),
         listOf("https://i1.photo.2gis.com/images/branch/0/30258560067202581_9b2d.jpg", "Бир 1/2 Эки", "Проспект Чуй, 110", "Круглосуточно", "Кафе быстрого питания", "160", "+996 502‒16‒51‒25"),
     )
+
+    override fun call(number: String) {
+        val callIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:$number"))
+        requireActivity().startActivity(callIntent)
+    }
+
+    override fun openMap(address: String) {
+        val callIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://2gis.kg/bishkek/search/$address"))
+        requireActivity().startActivity(callIntent)
+    }
 }

@@ -8,13 +8,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat.startActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.recyclerview_item.view.*
 
-class LocationRecyclerAdapter (private val description: List<List<String>>, private val type: String):
+class LocationRecyclerAdapter (private val description: List<List<String>>,
+                               private val type: String,
+                               private val listener: Listener):
     RecyclerView.Adapter<LocationRecyclerAdapter.MyViewHolder>(){
 
 
@@ -38,7 +41,7 @@ class LocationRecyclerAdapter (private val description: List<List<String>>, priv
         val locationAddress2: TextView = itemView.findViewById(R.id.location_address2)
         val locationClosetime2: TextView = itemView.findViewById(R.id.location_closetime2)
 
-        val recyclerViewItem: RelativeLayout = itemView.findViewById(R.id.recyclerViewItem)
+        val recyclerViewItem: ConstraintLayout = itemView.findViewById(R.id.recyclerViewItem)
         val divider: View = itemView.findViewById(R.id.divider)
 
     }
@@ -79,13 +82,11 @@ class LocationRecyclerAdapter (private val description: List<List<String>>, priv
             locationClosetime2.text = description[position][closetimePos]
 
             locationPhone.setOnClickListener {
-                val callIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + locationPhone.text))
-                locationPhone.context.startActivity(callIntent)
+                listener.call(locationPhone.text.toString())
             }
 
             locationAddress2.setOnClickListener {
-                val callIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://2gis.kg/bishkek/search/" + description[position][addressPos]))
-                locationAddress2.context.startActivity(callIntent)
+                listener.openMap(locationAddress.text.toString())
             }
 
             button.setOnClickListener {
@@ -94,12 +95,18 @@ class LocationRecyclerAdapter (private val description: List<List<String>>, priv
                     locationName.setTextSize(TypedValue.COMPLEX_UNIT_SP, 35.toFloat())
                     locationInfo2.isVisible = true
                     button.contentDescription = "up"
+
+                    locationType.isVisible = false
+                    locationAddress.isVisible = false
                 }
                 else if (button.contentDescription == "up") {
                     button.setImageResource(R.drawable.arrow_down)
                     locationName.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24.toFloat())
                     locationInfo2.setVisibility(View.GONE)
                     button.contentDescription = "down"
+
+                    locationType.isVisible = true
+                    locationAddress.isVisible = true
                 }
             }
         }

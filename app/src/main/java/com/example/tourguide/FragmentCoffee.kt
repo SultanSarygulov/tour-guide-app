@@ -1,5 +1,7 @@
 package com.example.tourguide
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,7 +10,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tourguide.databinding.FragmentCoffeeBinding
 
-class FragmentCoffee : Fragment() {
+class FragmentCoffee : Fragment(), Listener {
 
     private lateinit var binding: FragmentCoffeeBinding
 
@@ -22,7 +24,7 @@ class FragmentCoffee : Fragment() {
         binding = FragmentCoffeeBinding.inflate(inflater, container, false)
 
         binding.recyclerViewCoffee.layoutManager = LinearLayoutManager(this@FragmentCoffee.context)
-        binding.recyclerViewCoffee.adapter = LocationRecyclerAdapter(coffeeLocations, "Кофейня")
+        binding.recyclerViewCoffee.adapter = LocationRecyclerAdapter(coffeeLocations, "Кофейня", this)
         return binding.root
     }
 
@@ -34,4 +36,14 @@ class FragmentCoffee : Fragment() {
         listOf("https://sxodim.com/uploads/posts/2022/10/06/optimized/16ca001fddabe6325fe242ef8bc1da82_220x132-q-85.jpg", "Monkey Coffee", "Токтогула, 165", "Открыто до 23:00", "Кофейня", "700", "+996 770‒00‒45‒91"),
         listOf("https://prod-choiceqr-media.s3.eu-central-1.amazonaws.com/prod-eat-aldo-coffee/ZuENQPr-cDEoFQe-xzkuvku.jpeg", "Aldo Coffee", "Горького, 19", "Открыто до 04:00", "Кофейня", "450", "+996 772‒07‒00‒26"),
     )
+
+    override fun call(number: String) {
+        val callIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:$number"))
+        requireActivity().startActivity(callIntent)
+    }
+
+    override fun openMap(address: String) {
+        val callIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://2gis.kg/bishkek/search/$address"))
+        requireActivity().startActivity(callIntent)
+    }
 }

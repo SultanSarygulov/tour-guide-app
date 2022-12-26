@@ -1,5 +1,7 @@
 package com.example.tourguide
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tourguide.databinding.FragmentCinemaBinding
 import com.example.tourguide.databinding.FragmentShawarmaBinding
 
-class FragmentCinema : Fragment() {
+class FragmentCinema : Fragment(), Listener {
 
     private val photo = "https://pbs.twimg.com/ext_tw_video_thumb/1533643804389085185/pu/img/aZFC-czlC1ZLG-hr.jpg"
 
@@ -25,7 +27,7 @@ class FragmentCinema : Fragment() {
         binding.recyclerView.layoutManager =
             LinearLayoutManager(this.context)
         binding.recyclerView.adapter =
-            LocationRecyclerAdapter(cinemaLocations, "Кинотеатр")
+            LocationRecyclerAdapter(cinemaLocations, "Кинотеатр", this)
         return binding.root
     }
 
@@ -38,4 +40,14 @@ class FragmentCinema : Fragment() {
         listOf("TSUM Cinema", "Шопокова, 91", "Открыто до 00:00"),
         listOf("Broadway", "Чынгыза Айтматова, 3", "Открыто до 00:00"),
     )
+
+    override fun call(number: String) {
+        val callIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:$number"))
+        requireActivity().startActivity(callIntent)
+    }
+
+    override fun openMap(address: String) {
+        val callIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://2gis.kg/bishkek/search/$address"))
+        requireActivity().startActivity(callIntent)
+    }
 }

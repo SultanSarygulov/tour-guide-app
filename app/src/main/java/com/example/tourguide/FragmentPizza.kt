@@ -1,5 +1,7 @@
 package com.example.tourguide
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,7 +10,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tourguide.databinding.FragmentPizzaBinding
 
-class FragmentPizza : Fragment() {
+class FragmentPizza : Fragment(), Listener {
 
     private val photo = "https://pbs.twimg.com/ext_tw_video_thumb/1533643804389085185/pu/img/aZFC-czlC1ZLG-hr.jpg"
 
@@ -22,7 +24,7 @@ class FragmentPizza : Fragment() {
         binding = FragmentPizzaBinding.inflate(inflater, container, false)
 
         binding.recyclerViewPizza.layoutManager = LinearLayoutManager(this@FragmentPizza.context)
-        binding.recyclerViewPizza.adapter = LocationRecyclerAdapter(pizzaLocations, "Пиццерия")
+        binding.recyclerViewPizza.adapter = LocationRecyclerAdapter(pizzaLocations, "Пиццерия", this)
         return binding.root
     }
 
@@ -34,4 +36,14 @@ class FragmentPizza : Fragment() {
         listOf("Dodo Pizza", "Шевченко, 80", "Открыто до 01:00"),
         listOf("NY Pizza", "Киевская, 89", "Открыто до 00:00"),
     )
+
+    override fun call(number: String) {
+        val callIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:$number"))
+        requireActivity().startActivity(callIntent)
+    }
+
+    override fun openMap(address: String) {
+        val callIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://2gis.kg/bishkek/search/$address"))
+        requireActivity().startActivity(callIntent)
+    }
 }
