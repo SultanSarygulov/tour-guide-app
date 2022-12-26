@@ -1,3 +1,71 @@
 <resources>
-    <string name="app_name">TourGuide</string>
+    <string name="app_name">Bishkek Guide</string>
+
+    <string-array name="oasis">
+        <item>https://i8.photo.2gis.com/images/branch/0/30258560067203567_6bd3_300x300.jpg</item>
+        <item>Oasis</item>
+        <item>Московская, 78/1</item>
+        <item>Открыто до 22:00</item>
+        <item>Киоск фастфудной продукции</item>
+        <item>250</item>
+        <item>+996 774‒44‒55‒99</item>
+    </string-array>
+
+
+    <string-array name="ekidos">
+        <item>https://i5.photo.2gis.com/images/branch/0/30258560075361905_ecff.jpg</item>
+        <item>Эки Дос</item>
+        <item>Абдрахманова, 176/5</item>
+        <item>Круглосуточно</item>
+        <item>Кафе быстрого питания</item>
+        <item>130</item>
+        <item>+996 509‒82‒28‒22</item>
+    </string-array>
+
+    <string-array name="burger_na_dorojke">
+        <item>https://i8.photo.2gis.com/images/branch/0/30258560053568273_10e4.jpg</item>
+        <item>Burger na dorojke</item>
+        <item>Тунгуч, 36/4</item>
+        <item>Круглосуточно</item>
+        <item>Киоск фастфудной продукции</item>
+        <item>150</item>
+        <item>+996 555‒16‒16‒51</item>
+    </string-array>
+
+    <string-array name="muslim_food">
+        <item>https://i8.photo.2gis.com/images/branch/0/30258560068852043_d030.jpg</item>
+        <item>Muslim Food</item>
+        <item>Проспект Ленина, 48</item>
+        <item>Открыто до 04:00</item>
+        <item>Киоск фастфуда</item>
+        <item>150</item>
+        <item>Отсутствует</item>
+    </string-array>
+
+    <string-array name="al_israa">
+        <item>https://i2.photo.2gis.com/images/branch/0/30258560067843319_72d9.jpg</item>
+        <item>Al-Israa</item>
+        <item>Кольбаева, 68</item>
+        <item>Открыто до 00:00</item>
+        <item>Киоск фастфудной продукции</item>
+        <item>700</item>
+        <item>+996 703‒33‒37‒13</item>
+    </string-array>
+
+    <string-array name="bir_eki">
+        <item>https://i1.photo.2gis.com/images/branch/0/30258560067202581_9b2d.jpg</item>
+        <item>Бир 1/2 Эки</item>
+        <item>Проспект Чуй, 110</item>
+        <item>Круглосуточно</item>
+        <item>Кафе быстрого питания</item>
+        <item>160</item>
+        <item>+996 502‒16‒51‒25</item>
+    </string-array>
+
+    <array name="shawarma_locations">
+        <item>@array/al_israa</item>
+        <item>@array/bir_eki</item>
+    </array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

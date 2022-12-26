@@ -13,4 +13,14 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+    
+    <style name="MyCustomAppearence" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="MyFont" parent="TextAppearance.Design.Tab">
+        <item name="fontFamily">@font/open_sans</item>
+    </style>
+
 </resources>
