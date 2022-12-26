@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -8,6 +9,21 @@
     android:layout_margin="8dp"
     android:visibility="visible"
     tools:visibility="visible">
+
+    <ImageButton
+        android:id="@+id/button"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_above="@+id/divider"
+        android:layout_alignParentEnd="true"
+        android:background="@color/white"
+        android:contentDescription="down"
+        android:cropToPadding="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:scaleType="fitXY"
+        android:src="@drawable/arrow_down"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/location_photo"
@@ -99,8 +115,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/address_icon"
-            android:layout_toRightOf="@id/address_icon"
             android:layout_marginLeft="6dp"
+            android:layout_toRightOf="@id/address_icon"
             android:textColor="@color/my_blue"
             tools:text="Проспект Чуй 136" />
 

@@ -9,10 +9,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.content.ContextCompat.startActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.tourguide.databinding.RecyclerviewItemBinding
+import com.example.tourguide.databinding.RecyclerviewItemOpenBinding
 import kotlinx.android.synthetic.main.recyclerview_item.view.*
 
 class LocationRecyclerAdapter (private val description: List<List<String>>,
@@ -21,29 +24,77 @@ class LocationRecyclerAdapter (private val description: List<List<String>>,
     RecyclerView.Adapter<LocationRecyclerAdapter.MyViewHolder>(){
 
 
-    class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+    inner class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
 
-        val button: ImageButton = itemView.findViewById(R.id.button)
+        val binding = RecyclerviewItemBinding.bind(itemView)
 
-        val locationPhoto: ImageView = itemView.findViewById(R.id.location_photo)
-        val locationName: TextView = itemView.findViewById(R.id.location_name)
-        val locationType: TextView = itemView.findViewById(R.id.location_type)
-        val locationAddress: TextView = itemView.findViewById(R.id.location_address)
-        val locationClosetime: TextView = itemView.findViewById(R.id.location_closetime)
+        fun bind(item: List<String>) = with(binding) {
+            val photoPos = 0
+            val namePos = 1
+            val addressPos = 2
+            val closetimePos = 3
 
+            val infoPos = 4
+            val checkPos = 5
+            val phonePos = 6
 
-        // Opened up
-        val locationInfo2: RelativeLayout = itemView.findViewById(R.id.location_info2)
+            Glide.with(binding.locationPhoto)
+                .load(item[photoPos])
+                .into(binding.locationPhoto)
 
-        val locationTypeSpec: TextView = itemView.findViewById(R.id.location_type_spec)
-        val locationCheck: TextView = itemView.findViewById(R.id.location_check)
-        val locationPhone: TextView = itemView.findViewById(R.id.location_phone)
-        val locationAddress2: TextView = itemView.findViewById(R.id.location_address2)
-        val locationClosetime2: TextView = itemView.findViewById(R.id.location_closetime2)
+            locationName.text = item[namePos]
 
-        val recyclerViewItem: ConstraintLayout = itemView.findViewById(R.id.recyclerViewItem)
-        val divider: View = itemView.findViewById(R.id.divider)
+            locationType.text = type
+            locationAddress.text = item[addressPos]
+            locationClosetime.text = item[closetimePos]
+            
+            locationTypeSpec.text = item[infoPos]
+            locationCheck.text = "Средний чек ${item[checkPos]} с"
+            locationPhone.text = item[phonePos]
+            locationAddress2.text = item[addressPos]
+            locationClosetime2.text = item[closetimePos]
 
+            binding.locationPhone.setOnClickListener {
+                listener.call(binding.locationPhone.text.toString())
+            }
+
+            binding.locationAddress2.setOnClickListener {
+                listener.openMap(binding.locationAddress2.text.toString())
+            }
+
+            button.setOnClickListener {
+                if (button.contentDescription == "down"){
+                    // Open item
+                    button.setImageResource(R.drawable.arrow_up)
+                    locationName.setTextSize(TypedValue.COMPLEX_UNIT_SP, 35.toFloat())
+                    locationInfo2.isVisible = true
+                    button.contentDescription = "up"
+
+                    locationType.isVisible = false
+                    locationAddress.isVisible = false
+
+                    val constraintSet = ConstraintSet()
+                    constraintSet.clone(recyclerViewItemLayout)
+                    constraintSet.connect(R.id.divider, ConstraintSet.TOP, R.id.location_info2,ConstraintSet.BOTTOM,8)
+                    constraintSet.applyTo(recyclerViewItemLayout)
+                }
+                else if (button.contentDescription == "up") {
+                    // Close item
+                    button.setImageResource(R.drawable.arrow_down)
+                    locationName.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24.toFloat())
+                    locationInfo2.setVisibility(View.GONE)
+                    button.contentDescription = "down"
+
+                    locationType.isVisible = true
+                    locationAddress.isVisible = true
+
+                    val constraintSet = ConstraintSet()
+                    constraintSet.clone(recyclerViewItemLayout)
+                    constraintSet.connect(R.id.divider, ConstraintSet.TOP, R.id.location_info,ConstraintSet.BOTTOM,8)
+                    constraintSet.applyTo(recyclerViewItemLayout)
+                }
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LocationRecyclerAdapter.MyViewHolder {
@@ -56,60 +107,7 @@ class LocationRecyclerAdapter (private val description: List<List<String>>,
 
     override fun onBindViewHolder(holder: LocationRecyclerAdapter.MyViewHolder, position: Int) {
 
-        val photoPos = 0
-        val namePos = 1
-        val addressPos = 2
-        val closetimePos = 3
-
-        val infoPos = 4
-        val checkPos = 5
-        val phonePos = 6
-
-        with(holder){
-            Glide.with(locationPhoto)
-                .load(description[position][photoPos])
-                .into(locationPhoto)
-
-            locationName.text = description[position][namePos]
-            locationType.text = type
-            locationAddress.text = description[position][addressPos]
-            locationClosetime.text = description[position][closetimePos]
-
-            locationTypeSpec.text = description[position][infoPos]
-            locationCheck.text = "Средний чек ${description[position][checkPos]} с"
-            locationPhone.text = description[position][phonePos]
-            locationAddress2.text = description[position][addressPos]
-            locationClosetime2.text = description[position][closetimePos]
-
-            locationPhone.setOnClickListener {
-                listener.call(locationPhone.text.toString())
-            }
-
-            locationAddress2.setOnClickListener {
-                listener.openMap(locationAddress.text.toString())
-            }
-
-            button.setOnClickListener {
-                if (button.contentDescription == "down"){
-                    button.setImageResource(R.drawable.arrow_up)
-                    locationName.setTextSize(TypedValue.COMPLEX_UNIT_SP, 35.toFloat())
-                    locationInfo2.isVisible = true
-                    button.contentDescription = "up"
-
-                    locationType.isVisible = false
-                    locationAddress.isVisible = false
-                }
-                else if (button.contentDescription == "up") {
-                    button.setImageResource(R.drawable.arrow_down)
-                    locationName.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24.toFloat())
-                    locationInfo2.setVisibility(View.GONE)
-                    button.contentDescription = "down"
-
-                    locationType.isVisible = true
-                    locationAddress.isVisible = true
-                }
-            }
-        }
+        holder.bind(description[position])
     }
 
     override fun getItemCount() = description.size
